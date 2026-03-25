@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #f3f3f3;
+    color: #000000;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    line-height: 0.9;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+::selection {
+  background-color: #eef100;
+  color: #000000;
+}
+
+/* Custom CSS Classes */
+.bg-brutalist-bg {
+  background-color: #f3f3f3;
+}
+
+.bg-brutalist-yellow {
+  background-color: #eef100;
+}
+
+.bg-brutalist-pink {
+  background-color: #ff007a;
+}
+
+.bg-brutalist-cyan {
+  background-color: #73e9f0;
+}
+
+.bg-brutalist-black {
+  background-color: #000000;
+}
+
+.text-brutalist-pink {
+  color: #ff007a;
+}
+
+.text-brutalist-black {
+  color: #000000;
+}
+
+.border-brutalist-black {
+  border-color: #000000;
+}
+
+.noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.brutalist-card {
+  background-color: #ffffff;
+  border: 4px solid #000000;
+  box-shadow: 4px 4px 0px 0px #000000;
+  transition: all 0.1s ease-in-out;
+}
+
+.brutalist-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0px 0px #000000;
+}
+
+.brutalist-button {
+  background-color: #eef100;
+  border: 4px solid #000000;
+  box-shadow: 6px 6px 0px 0px #000000;
+  padding: 1.25rem 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.1s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.brutalist-button:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 10px 10px 0px 0px #000000;
+}
+
+.brutalist-button:active {
+  transform: translate(0, 0);
+  box-shadow: none;
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f3f3f3;
+  border-left: 4px solid #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  border: 4px solid #f3f3f3;
+}
+
+.flow-line {
+  stroke-dasharray: 1000;
+  animation: flow 20s linear infinite;
+}
+
+@keyframes flow {
+  from {
+    stroke-dashoffset: 1000;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .brutalist-button {
+    padding: 1rem 1.5rem;
+    font-size: 0.875rem;
+  }
+}
