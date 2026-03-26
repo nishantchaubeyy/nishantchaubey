@@ -73,7 +73,12 @@ const Contact = () => {
 
                         <div className="space-y-6">
                             {[
-                                { label: 'EMAIL', value: 'nishantchaubey8004@gmail.com', href: 'mailto:nishantchaubey8004@gmail.com', icon: Mail, isEmail: true },
+                                {
+                                    label: 'EMAIL',
+                                    value: 'nishantchaubey8004@gmail.com',
+                                    href: 'https://mail.google.com/mail/?view=cm&fs=1&to=nishantchaubey8004@gmail.com&su=Hi%20Nishant%20-%20From%20Your%20Portfolio',
+                                    icon: Mail,
+                                },
                                 { label: 'LINKEDIN', value: 'Nishant Chaubey', href: 'https://www.linkedin.com/in/nishant-chaubey-9b3080313', icon: Linkedin },
                                 { label: 'GITHUB', value: 'nishantchaubeyy', href: 'https://github.com/nishantchaubeyy', icon: Github },
                                 { label: 'TWITTER', value: 'nishantchaubeyy', href: 'https://twitter.com/nishantchaubeyy', icon: Twitter }
@@ -81,7 +86,7 @@ const Contact = () => {
                                 <a
                                     key={link.label}
                                     href={link.href}
-                                    target={link.isEmail ? undefined : '_blank'}
+                                    target="_blank"
                                     rel="noopener noreferrer"
                                     className="group flex items-center gap-6 p-6 brutalist-card hover:bg-brutalist-cyan transition-all"
                                 >
