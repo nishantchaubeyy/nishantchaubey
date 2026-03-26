@@ -15,13 +15,13 @@ const Footer = () => {
                 </motion.div>
 
                 <div className="flex items-center gap-10">
-                    <a href="#" className="text-xs font-black tracking-widest text-black/40 uppercase hover:text-brutalist-pink transition-colors">Twitter</a>
-                    <a href="#" className="text-xs font-black tracking-widest text-black/40 uppercase hover:text-brutalist-pink transition-colors">LinkedIn</a>
-                    <a href="#" className="text-xs font-black tracking-widest text-black/40 uppercase hover:text-brutalist-pink transition-colors">Github</a>
+                    <a href="https://twitter.com/nishantchaubeyy" target="_blank" rel="noopener noreferrer" className="text-xs font-black tracking-widest text-black/40 uppercase hover:text-brutalist-pink transition-colors">Twitter</a>
+                    <a href="https://www.linkedin.com/in/nishant-chaubey-9b3080313?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="text-xs font-black tracking-widest text-black/40 uppercase hover:text-brutalist-pink transition-colors">LinkedIn</a>
+                    <a href="https://github.com/nishantchaubeyy" target="_blank" rel="noopener noreferrer" className="text-xs font-black tracking-widest text-black/40 uppercase hover:text-brutalist-pink transition-colors">Github</a>
                 </div>
 
                 <div className="text-xs font-black tracking-widest text-black/20 uppercase">
-                    © 2026 NISHANT • CRAFTED WITH VOTE
+                    © 2026 NISHANT • CRAFTED WITH IMPACT
                 </div>
             </div>
         </footer>

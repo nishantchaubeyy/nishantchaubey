@@ -12,7 +12,7 @@ const About = () => {
                     transition={{ duration: 0.8 }}
                     className="space-y-6"
                 >
-                    <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600">ABOUT ME</p>
+                    <p className="text-xs font-bold tracking-[0.2em] uppercase text-brutalist-pink">ABOUT ME</p>
                     <h2 className="text-4xl md:text-6xl font-display font-black tracking-tight leading-[1.1] text-black">
                         PASSIONATE ABOUT <br />
                         <span className="text-black/40">CRAFTING EXPERIENCES</span>
@@ -27,19 +27,19 @@ const About = () => {
                     className="max-w-3xl space-y-8"
                 >
                     <p className="text-xl md:text-2xl text-black/70 leading-relaxed font-medium">
-                        Currently focusing on React, Next.js, and modern CSS techniques to build
-                        performant and visually stunning web applications. I believe that
-                        every detail matters, and I'm dedicated to delivering excellence in every pixel.
+                        B.Tech (CSE) student at DY Patil International University, passionate about the intersection of AI, Web Engineering, and Entrepreneurship.
+                        Proven leader through roles at E-Cell DYPIU and E-Cell IIT BHU, and a competitive innovator recognized as a Top 35 finalist in
+                        IIT Bombay's National Entrepreneurship Challenge.
                     </p>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 text-center md:text-left">
                         {[
-                            { label: 'Experience', value: '3+ Years' },
-                            { label: 'Projects', value: '25+' },
-                            { label: 'Happy Clients', value: '40+' },
-                            { label: 'Tech Stack', value: '10+' }
+                            { label: 'Major', value: 'B.Tech CSE' },
+                            { label: 'NEC Rank', value: 'Top 35' },
+                            { label: 'SIH 2025', value: 'Qualifier' },
+                            { label: 'Impact', value: '10+ Proj' }
                         ].map((stat, i) => (
-                            <div key={stat.label} className="space-y-2 border-l-4 border-black pl-6 text-left">
+                            <div key={stat.label} className="space-y-2 border-l-4 border-black pl-6">
                                 <p className="text-xs font-bold tracking-widest text-black/40 uppercase">{stat.label}</p>
                                 <p className="text-2xl font-display font-black text-black">{stat.value}</p>
                             </div>

@@ -21,45 +21,33 @@ const Hero = () => {
                         <motion.h2
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
-                            className="text-7xl md:text-9xl font-display font-black tracking-tighter"
+                            className="text-7xl md:text-9xl font-bebas font-black tracking-tighter"
                         >
-                            WeLabs
+                            NISHANT CHAUBEY
                         </motion.h2>
-                        <motion.div
-                            initial={{ scaleX: 0 }}
-                            animate={{ scaleX: 1 }}
-                            transition={{ delay: 0.5, duration: 0.5 }}
-                            className="absolute -bottom-2 left-0 w-full h-2 bg-black origin-left shadow-[0_4px_0_#eef100]"
-                        />
                     </div>
-
                     <div className="space-y-6">
                         <motion.h1
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            className="text-4xl md:text-6xl font-display font-black leading-[1.1] tracking-tighter flex flex-col"
+                            className="text-4xl md:text-6xl font-display font-black leading-[1.1] tracking-tighter"
                         >
-                            <span>We Build What</span>
-                            <span className="text-brutalist-pink">You Vote For</span>
+                            Building for the <br />
+                            <span className="text-brutalist-pink tracking-tight">Next Generation of the Web.</span>
                         </motion.h1>
 
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.4 }}
-                            className="space-y-4 max-w-lg"
+                            className="space-y-4 max-w-2xl"
                         >
-                            <p className="text-xl md:text-2xl font-mono leading-relaxed">
-                                Custom development for businesses.
+                            <p className="text-2xl md:text-3xl font-display font-medium leading-relaxed opacity-90 italic">
+                                Exploring the synergy between <span className="text-black font-black">AI</span>,
+                                <span className="text-black font-black"> Engineering</span>, and
+                                <span className="text-black font-black"> Creativity</span>.
                             </p>
-                            <p className="text-xl md:text-2xl font-mono leading-relaxed">
-                                Open-source tools for everyone.
-                            </p>
-                            <div className="pt-4 flex items-center gap-3 text-brutalist-black/60 font-mono italic">
-                                <span>→</span>
-                                <span>One funds the other. Both get our best work.</span>
-                            </div>
                         </motion.div>
                     </div>
 
@@ -69,12 +57,16 @@ const Hero = () => {
                         transition={{ delay: 0.6 }}
                         className="flex flex-wrap gap-4 pt-10"
                     >
-                        <button className="brutalist-button bg-brutalist-yellow">
-                            See Our Work
-                        </button>
-                        <button className="brutalist-button bg-white">
-                            Suggest an Idea
-                        </button>
+                        <a href="#projects" className="brutalist-button bg-brutalist-yellow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                            See My Work
+                        </a>
+                        <a
+                            href="/Nishantresume.pdf"
+                            target="_blank"
+                            className="brutalist-button bg-white hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
+                        >
+                            Download CV
+                        </a>
                     </motion.div>
                 </div>
 
@@ -90,19 +82,36 @@ const Hero = () => {
                         <div className="absolute inset-0 grid grid-cols-10 grid-rows-10 border border-black/5 opacity-20 pointer-events-none" />
 
                         {/* Artistic Element (Logo or Abstract Shape) */}
-                        <div className="flex flex-col items-center gap-4 text-center">
-                            <div className="w-16 h-16 border-2 border-black rotate-45 mb-4 group-hover:rotate-180 transition-transform duration-1000" />
-                            <p className="font-mono text-xs uppercase tracking-[0.2em] font-bold">Concept Labs v0.1</p>
-                            <div className="w-1/2 h-[2px] bg-black/20" />
-                            <p className="font-mono text-[10px] leading-tight opacity-60">
-                                SYSTEM.CORE.BUILDING_BLOCKS<br />
-                                OPTIMIZING.FLOW.STATE
-                            </p>
+                        <div className="flex flex-col items-center gap-6 text-center z-10">
+                            <motion.div
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ delay: 1 }}
+                                className="w-48 h-48 md:w-64 md:h-64 grayscale group-hover:grayscale-0 transition-all duration-700 border-4 border-black shadow-[10px_10px_0_0_#000] overflow-hidden rotate-3 group-hover:rotate-0"
+                            >
+                                <img
+                                    src="/profile.jpeg"
+                                    alt="Nishant Chaubey"
+                                    className="w-full h-full object-cover"
+                                    onError={(e) => {
+                                        e.target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop';
+                                    }}
+                                />
+                            </motion.div>
+                            <div className="space-y-2">
+                                <p className="font-bebas text-3xl md:text-4xl tracking-tight">NC.SYSTEM v1.0</p>
+                                <div className="w-24 h-[3px] bg-black mx-auto" />
+                                <p className="font-mono text-[10px] uppercase tracking-widest opacity-60">
+                                    ESTABLISHED.2024<br />
+                                    CORE.ENGINEERING.SUITE
+                                </p>
+                            </div>
                         </div>
 
                         {/* Additional brutalist deco */}
                         <div className="absolute top-4 left-4 w-4 h-4 bg-brutalist-yellow border-2 border-black" />
                         <div className="absolute bottom-4 right-4 w-12 h-1 bg-brutalist-pink border border-black" />
+                        <div className="absolute top-10 right-10 w-8 h-8 rounded-full border-2 border-dashed border-black/20 animate-spin-slow" />
                     </div>
                 </motion.div>
             </div>

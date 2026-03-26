@@ -8,7 +8,7 @@ const Contact = () => {
         <section id="contact" className="py-24 md:py-32 px-6">
             <div className="max-w-7xl mx-auto space-y-16">
                 <div className="space-y-4">
-                    <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600">GET IN TOUCH</p>
+                    <p className="text-xs font-bold tracking-[0.2em] uppercase text-brutalist-pink">GET IN TOUCH</p>
                     <h2 className="text-4xl md:text-6xl font-display font-black tracking-tight leading-[1.1] text-black">
                         LET'S WORK <br />
                         <span className="text-black/40">TOGETHER</span>
@@ -31,20 +31,26 @@ const Contact = () => {
 
                         <div className="space-y-6">
                             {[
-                                { label: 'EMAIL', value: 'hello@nishant.me', icon: Mail },
-                                { label: 'LINKEDIN', value: 'linkedin.com/in/nishant', icon: Linkedin },
-                                { label: 'GITHUB', value: 'github.com/nishant', icon: Github },
-                                { label: 'TWITTER', value: 'twitter.com/nishant', icon: Twitter }
+                                { label: 'EMAIL', value: 'nishantchaubey8004@gmail.com', href: 'mailto:nishantchaubey8004@gmail.com', icon: Mail, isEmail: true },
+                                { label: 'LINKEDIN', value: 'Nishant Chaubey', href: 'https://www.linkedin.com/in/nishant-chaubey-9b3080313?utm_source=share_via&utm_content=profile&utm_medium=member_android', icon: Linkedin },
+                                { label: 'GITHUB', value: 'nishantchaubeyy', href: 'https://github.com/nishantchaubeyy', icon: Github },
+                                { label: 'TWITTER', value: 'nishantchaubeyy', href: 'https://twitter.com/nishantchaubeyy', icon: Twitter }
                             ].map((link, i) => (
-                                <div key={link.label} className="group flex items-center gap-6 p-6 brutalist-card hover:bg-brutalist-cyan">
+                                <a
+                                    key={link.label}
+                                    href={link.href}
+                                    target={link.isEmail ? undefined : "_blank"}
+                                    rel="noopener noreferrer"
+                                    className="group flex items-center gap-6 p-6 brutalist-card hover:bg-brutalist-cyan transition-all"
+                                >
                                     <div className="p-4 border-2 border-black bg-white group-hover:bg-black group-hover:text-white transition-all shadow-[4px_4px_0_0_#000]">
                                         <link.icon className="w-6 h-6" />
                                     </div>
-                                    <div>
+                                    <div className="overflow-hidden">
                                         <p className="text-xs font-bold tracking-widest text-black/40 uppercase">{link.label}</p>
-                                        <p className="text-xl font-display font-black text-black tracking-tight">{link.value}</p>
+                                        <p className="text-lg font-display font-black text-black tracking-tight truncate">{link.value}</p>
                                     </div>
-                                </div>
+                                </a>
                             ))}
                         </div>
                     </motion.div>

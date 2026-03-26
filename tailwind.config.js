@@ -16,8 +16,9 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
-        display: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Outfit', 'Inter', 'system-ui', 'sans-serif'],
         mono: ['Space Mono', 'monospace'],
+        bebas: ['Bebas Neue', 'cursive'],
       },
       boxShadow: {
         'brutalist': '4px 4px 0px 0px #000000',

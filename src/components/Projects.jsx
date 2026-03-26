@@ -5,35 +5,35 @@ import { Github } from './SocialIcons';
 
 const projects = [
     {
-        title: 'E-Commerce Platform',
-        description: 'A full-stack e-commerce marketplace built with React, Node.js, and Stripe integration.',
-        tech: ['React', 'Tailwind', 'Node.js', 'Stripe'],
-        image: 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=1600',
-        github: '#',
+        title: 'OceraAi',
+        description: 'AI-driven data platform focusing on Oceanographic, Fisheries, and Molecular Biodiversity insights. Built for SIH 2025 Hackathon.',
+        tech: ['Python', 'FastAPI', 'TensorFlow', 'PostgreSQL'],
+        image: 'oceanographic_platform_mockup_1774519055188.png',
+        github: 'https://github.com/nishantchaubeyy/OceraAi',
+        live: 'https://nishantchaubeyy.github.io/OceraAi/'
+    },
+    {
+        title: 'The US Residency',
+        description: 'Complete hotel website and OTA integration with Google Hotel Center API, emphasizing mobile-first user experience and high-speed performance.',
+        tech: ['React.js', 'Firebase', 'SEO', 'Google API'],
+        image: 'hotel_portfolio_mockup_1774519071588.png',
+        github: 'https://github.com/theusresidency/usresidency.github.io',
+        live: 'https://theusresidency.github.io/usresidency.github.io/'
+    },
+    {
+        title: 'EduSync (LMS)',
+        description: 'A comprehensive education portal featuring course administration, student progress tracking, and interactive learning modules.',
+        tech: ['React', 'Node.js', 'Firebase'],
+        image: 'lms_mockup_1774522249160.png',
+        github: 'https://github.com/nishantchaubeyy/EduSync.git',
         live: '#'
     },
     {
-        title: 'AI Dashboard',
-        description: 'A sophisticated dashboard for AI monitoring and analytics with interactive charts.',
-        tech: ['Next.js', 'Typescript', 'Framer Motion', 'Chart.js'],
-        image: 'https://images.unsplash.com/photo-1551288049-bb1c00342153?auto=format&fit=crop&q=80&w=1600',
-        github: '#',
-        live: '#'
-    },
-    {
-        title: 'Modern Portfolio',
-        description: 'A clean, high-performance portfolio website with smooth animations and dark theme.',
-        tech: ['Vite', 'React', 'Tailwind CSS', 'Framer Motion'],
-        image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1600',
-        github: '#',
-        live: '#'
-    },
-    {
-        title: 'Task Management App',
-        description: 'A collaborative task management tool with real-time updates and drag-and-drop features.',
-        tech: ['React', 'Firebase', 'Tailwind', 'React-DnD'],
-        image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&q=80&w=1600',
-        github: '#',
+        title: 'Civic Twin IIIT Delhi',
+        description: 'A simulation platform designed to predict public behavior and sentiment toward governance policies (e.g., CAA, Farm Laws), enabling proactive planning and crisis management.',
+        tech: ['Python', 'GIS', 'React', 'D3.js'],
+        image: 'civic_twin_mockup_1774522271429.png',
+        github: 'https://github.com/nishantchaubeyy',
         live: '#'
     }
 ];
@@ -43,7 +43,7 @@ const Projects = () => {
         <section id="projects" className="py-24 md:py-32 px-6">
             <div className="max-w-7xl mx-auto space-y-16">
                 <div className="space-y-4">
-                    <p className="text-xs font-bold tracking-[0.2em] uppercase text-blue-600">SELECTED WORK</p>
+                    <p className="text-xs font-bold tracking-[0.2em] uppercase text-brutalist-pink">SELECTED WORK</p>
                     <h2 className="text-4xl md:text-6xl font-display font-black tracking-tight leading-[1.1] text-black">
                         FEATURED <br />
                         <span className="text-black/40">PROJECTS</span>
