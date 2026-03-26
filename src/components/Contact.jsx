@@ -1,9 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Mail } from 'lucide-react';
+import { Send, Mail, CheckCircle, AlertCircle, Loader } from 'lucide-react';
 import { Github, Linkedin, Twitter } from './SocialIcons';
 
 const Contact = () => {
+    const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+    const [status, setStatus] = useState('idle'); // idle | loading | success | error
+
+    const handleChange = (e) => {
+        setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setStatus('loading');
+        try {
+            const res = await fetch('https://formsubmit.co/ajax/nishantchaubey8004@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    message: formData.message,
+                    _subject: `Portfolio contact from ${formData.name}`,
+                    _captcha: 'false',
+                    _template: 'table',
+                }),
+            });
+            const data = await res.json();
+            if (data.success === 'true' || data.success === true) {
+                setStatus('success');
+                setFormData({ name: '', email: '', message: '' });
+            } else {
+                setStatus('error');
+            }
+        } catch {
+            setStatus('error');
+        }
+    };
+
+    const inputClass =
+        'w-full px-6 py-4 bg-white border-2 border-black shadow-[4px_4px_0_0_#000] focus:shadow-none focus:translate-x-1 focus:translate-y-1 outline-none transition-all placeholder:text-black/20 font-black';
+
     return (
         <section id="contact" className="py-24 md:py-32 px-6">
             <div className="max-w-7xl mx-auto space-y-16">
@@ -16,11 +57,12 @@ const Contact = () => {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+                    {/* Left — contact links */}
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
+                        transition={{ duration: 0.6 }}
                         className="space-y-12"
                     >
                         <p className="text-xl md:text-2xl text-black/70 leading-relaxed font-medium">
@@ -32,14 +74,14 @@ const Contact = () => {
                         <div className="space-y-6">
                             {[
                                 { label: 'EMAIL', value: 'nishantchaubey8004@gmail.com', href: 'mailto:nishantchaubey8004@gmail.com', icon: Mail, isEmail: true },
-                                { label: 'LINKEDIN', value: 'Nishant Chaubey', href: 'https://www.linkedin.com/in/nishant-chaubey-9b3080313?utm_source=share_via&utm_content=profile&utm_medium=member_android', icon: Linkedin },
+                                { label: 'LINKEDIN', value: 'Nishant Chaubey', href: 'https://www.linkedin.com/in/nishant-chaubey-9b3080313', icon: Linkedin },
                                 { label: 'GITHUB', value: 'nishantchaubeyy', href: 'https://github.com/nishantchaubeyy', icon: Github },
                                 { label: 'TWITTER', value: 'nishantchaubeyy', href: 'https://twitter.com/nishantchaubeyy', icon: Twitter }
-                            ].map((link, i) => (
+                            ].map((link) => (
                                 <a
                                     key={link.label}
                                     href={link.href}
-                                    target={link.isEmail ? undefined : "_blank"}
+                                    target={link.isEmail ? undefined : '_blank'}
                                     rel="noopener noreferrer"
                                     className="group flex items-center gap-6 p-6 brutalist-card hover:bg-brutalist-cyan transition-all"
                                 >
@@ -55,29 +97,63 @@ const Contact = () => {
                         </div>
                     </motion.div>
 
+                    {/* Right — form */}
                     <motion.form
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
+                        transition={{ duration: 0.6 }}
                         className="space-y-8 p-10 brutalist-card"
-                        onSubmit={(e) => e.preventDefault()}
+                        onSubmit={handleSubmit}
                     >
+                        {/* Success */}
+                        {status === 'success' && (
+                            <div className="flex items-center gap-4 p-5 border-2 border-black bg-brutalist-cyan shadow-[4px_4px_0_0_#000]">
+                                <CheckCircle className="w-6 h-6 text-black shrink-0" />
+                                <p className="font-black uppercase tracking-widest text-sm">
+                                    Message sent! I'll reply soon. 🎉
+                                </p>
+                            </div>
+                        )}
+
+                        {/* Error */}
+                        {status === 'error' && (
+                            <div className="flex items-center gap-4 p-5 border-2 border-black bg-brutalist-pink shadow-[4px_4px_0_0_#000]">
+                                <AlertCircle className="w-6 h-6 text-white shrink-0" />
+                                <div>
+                                    <p className="font-black uppercase tracking-widest text-sm text-white">
+                                        Failed to send. Email me directly:
+                                    </p>
+                                    <a href="mailto:nishantchaubey8004@gmail.com" className="text-white underline text-xs font-bold">
+                                        nishantchaubey8004@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+                        )}
+
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div className="space-y-2">
                                 <label className="text-[10px] font-black tracking-widest text-black/40 uppercase pl-1">YOUR NAME</label>
                                 <input
                                     type="text"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
                                     placeholder="John Doe"
-                                    className="w-full px-6 py-4 bg-white border-3 border-black shadow-[4px_4px_0_0_#000] focus:shadow-none focus:translate-x-1 focus:translate-y-1 outline-none transition-all placeholder:text-black/20 font-black"
+                                    required
+                                    className={inputClass}
                                 />
                             </div>
                             <div className="space-y-2">
                                 <label className="text-[10px] font-black tracking-widest text-black/40 uppercase pl-1">EMAIL ADDRESS</label>
                                 <input
                                     type="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
                                     placeholder="john@example.com"
-                                    className="w-full px-6 py-4 bg-white border-3 border-black shadow-[4px_4px_0_0_#000] focus:shadow-none focus:translate-x-1 focus:translate-y-1 outline-none transition-all placeholder:text-black/20 font-black"
+                                    required
+                                    className={inputClass}
                                 />
                             </div>
                         </div>
@@ -85,16 +161,37 @@ const Contact = () => {
                         <div className="space-y-2">
                             <label className="text-[10px] font-black tracking-widest text-black/40 uppercase pl-1">YOUR MESSAGE</label>
                             <textarea
+                                name="message"
+                                value={formData.message}
+                                onChange={handleChange}
                                 placeholder="Hey, I have a project..."
                                 rows={6}
-                                className="w-full px-6 py-4 bg-white border-3 border-black shadow-[4px_4px_0_0_#000] focus:shadow-none focus:translate-x-1 focus:translate-y-1 outline-none transition-all placeholder:text-black/20 font-black resize-none"
+                                required
+                                className={`${inputClass} resize-none`}
                             />
                         </div>
 
-                        <button className="group w-full py-5 bg-brutalist-yellow border-3 border-black text-base font-black uppercase tracking-widest shadow-[6px_6px_0_0_#000] hover:shadow-none hover:translate-x-1.5 hover:translate-y-1.5 flex items-center justify-center gap-3 transition-all">
-                            Send Message
-                            <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                        <button
+                            type="submit"
+                            disabled={status === 'loading'}
+                            className="group w-full py-5 bg-brutalist-yellow border-2 border-black text-base font-black uppercase tracking-widest shadow-[6px_6px_0_0_#000] hover:shadow-none hover:translate-x-1.5 hover:translate-y-1.5 flex items-center justify-center gap-3 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                        >
+                            {status === 'loading' ? (
+                                <>
+                                    <Loader className="w-5 h-5 animate-spin" />
+                                    Sending...
+                                </>
+                            ) : (
+                                <>
+                                    Send Message
+                                    <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                </>
+                            )}
                         </button>
+
+                        <p className="text-[10px] text-black/30 font-bold text-center tracking-widest uppercase">
+                            Powered by FormSubmit · No spam, ever.
+                        </p>
                     </motion.form>
                 </div>
             </div>

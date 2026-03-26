@@ -8,7 +8,7 @@ const projects = [
         title: 'OceraAi',
         description: 'AI-driven data platform focusing on Oceanographic, Fisheries, and Molecular Biodiversity insights. Built for SIH 2025 Hackathon.',
         tech: ['Python', 'FastAPI', 'TensorFlow', 'PostgreSQL'],
-        image: 'oceanographic_platform_mockup_1774519055188.png',
+        image: '/oceraai_brutalist_mockup.png',
         github: 'https://github.com/nishantchaubeyy/OceraAi',
         live: 'https://nishantchaubeyy.github.io/OceraAi/'
     },
@@ -16,7 +16,7 @@ const projects = [
         title: 'The US Residency',
         description: 'Complete hotel website and OTA integration with Google Hotel Center API, emphasizing mobile-first user experience and high-speed performance.',
         tech: ['React.js', 'Firebase', 'SEO', 'Google API'],
-        image: 'hotel_portfolio_mockup_1774519071588.png',
+        image: '/usresidency_brutalist_mockup.png',
         github: 'https://github.com/theusresidency/usresidency.github.io',
         live: 'https://theusresidency.github.io/usresidency.github.io/'
     },
@@ -24,7 +24,7 @@ const projects = [
         title: 'EduSync (LMS)',
         description: 'A comprehensive education portal featuring course administration, student progress tracking, and interactive learning modules.',
         tech: ['React', 'Node.js', 'Firebase'],
-        image: 'lms_mockup_1774522249160.png',
+        image: '/edusync_brutalist_mockup.png',
         github: 'https://github.com/nishantchaubeyy/EduSync.git',
         live: '#'
     },
@@ -32,7 +32,7 @@ const projects = [
         title: 'Civic Twin IIIT Delhi',
         description: 'A simulation platform designed to predict public behavior and sentiment toward governance policies (e.g., CAA, Farm Laws), enabling proactive planning and crisis management.',
         tech: ['Python', 'GIS', 'React', 'D3.js'],
-        image: 'civic_twin_mockup_1774522271429.png',
+        image: '/civictwin_brutalist_mockup.png',
         github: 'https://github.com/nishantchaubeyy',
         live: '#'
     }
