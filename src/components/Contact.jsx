@@ -17,7 +17,7 @@ const Contact = () => {
         console.log('Form submission started for:', formData);
 
         try {
-            const response = await fetch('https://formsubmit.co/ajax/nishantchaubey8004@gmail.com', {
+            const response = await fetch('https://formsubmit.co/ajax/927dcd617f4b80c09efe2f2600610c5f', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
