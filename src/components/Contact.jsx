@@ -17,7 +17,7 @@ const Contact = () => {
         console.log('Form submission started for:', formData);
 
         try {
-            const res = await fetch('https://formsubmit.co/ajax/nishantchaubey8004@gmail.com', {
+            const response = await fetch('https://formsubmit.co/ajax/nishantchaubey8004@gmail.com', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -26,19 +26,13 @@ const Contact = () => {
                 body: JSON.stringify({
                     ...formData,
                     _subject: `New Portfolio Message from ${formData.name}`,
-                    _captcha: 'false', // Disables captcha for AJAX
+                    _captcha: 'false',
                     _template: 'table',
                 }),
             });
 
-            if (!res.ok) {
-                const errorData = await res.json().catch(() => ({}));
-                console.error('FormSubmit Error Response:', errorData);
-                throw new Error('Form submission failed');
-            }
-
-            const data = await res.json();
-            console.log('FormSubmit Success:', data);
+            const data = await response.json();
+            console.log('FormSubmit Response:', data);
 
             if (data.success === 'true' || data.success === true) {
                 setStatus('success');
@@ -86,7 +80,7 @@ const Contact = () => {
                                 {
                                     label: 'EMAIL',
                                     value: 'nishantchaubey8004@gmail.com',
-                                    href: 'https://mail.google.com/mail/?view=cm&fs=1&to=nishantchaubey8004@gmail.com&su=Hi%20Nishant%20-%20From%20Your%20Portfolio',
+                                    href: 'mailto:nishantchaubey8004@gmail.com?subject=Hi%20Nishant%20-%20From%20Your%20Portfolio',
                                     icon: Mail,
                                 },
                                 { label: 'LINKEDIN', value: 'Nishant Chaubey', href: 'https://www.linkedin.com/in/nishant-chaubey-9b3080313', icon: Linkedin },
