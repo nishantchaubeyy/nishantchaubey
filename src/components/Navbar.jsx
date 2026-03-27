@@ -31,6 +31,7 @@ const Navbar = () => {
     const navLinks = [
         { name: 'Home', href: '#home' },
         { name: 'About', href: '#about' },
+        { name: 'Experience', href: '#experience' },
         { name: 'Projects', href: '#projects' },
         { name: 'Skills', href: '#skills' },
         { name: 'Contact', href: '#contact' },
@@ -42,8 +43,8 @@ const Navbar = () => {
             <nav
                 style={{ willChange: 'transform' }}
                 className={`fixed top-0 w-full z-[100] transition-all duration-300 ${isScrolled || isMenuOpen
-                        ? 'py-3 bg-[#f3f3f3] border-b-4 border-black shadow-[0_4px_0_0_#000]'
-                        : 'py-6 bg-transparent'
+                    ? 'py-3 bg-[#f3f3f3] border-b-4 border-black shadow-[0_4px_0_0_#000]'
+                    : 'py-6 bg-transparent'
                     }`}
             >
                 <div className="max-w-[1440px] mx-auto px-5 md:px-24 flex items-center justify-between">
