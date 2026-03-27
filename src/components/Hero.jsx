@@ -106,12 +106,12 @@ const Hero = () => {
                     </motion.div>
                 </div>
 
-                {/* ── RIGHT COLUMN — hidden on small mobile, shown md+ ── */}
+                {/* ── RIGHT COLUMN — visible on all screens, stacked on mobile ── */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9, rotate: 2 }}
                     animate={{ opacity: 1, scale: 1, rotate: 0 }}
                     transition={{ duration: 0.7, delay: 0.2 }}
-                    className="hidden md:flex relative justify-center lg:justify-end"
+                    className="flex relative justify-center lg:justify-end mt-10 md:mt-0"
                 >
                     <div className="w-[300px] h-[300px] md:w-[380px] md:h-[380px] lg:w-[440px] lg:h-[440px] bg-brutalist-cyan border-4 border-black shadow-[12px_12px_0px_#000000] p-5 flex items-center justify-center relative overflow-hidden group">
 

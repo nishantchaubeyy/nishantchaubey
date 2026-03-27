@@ -14,30 +14,40 @@ const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setStatus('loading');
+        console.log('Form submission started for:', formData);
+
         try {
             const res = await fetch('https://formsubmit.co/ajax/nishantchaubey8004@gmail.com', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    Accept: 'application/json',
+                    'Accept': 'application/json',
                 },
                 body: JSON.stringify({
-                    name: formData.name,
-                    email: formData.email,
-                    message: formData.message,
-                    _subject: `Portfolio contact from ${formData.name}`,
-                    _captcha: 'false',
+                    ...formData,
+                    _subject: `New Portfolio Message from ${formData.name}`,
+                    _captcha: 'false', // Disables captcha for AJAX
                     _template: 'table',
                 }),
             });
+
+            if (!res.ok) {
+                const errorData = await res.json().catch(() => ({}));
+                console.error('FormSubmit Error Response:', errorData);
+                throw new Error('Form submission failed');
+            }
+
             const data = await res.json();
+            console.log('FormSubmit Success:', data);
+
             if (data.success === 'true' || data.success === true) {
                 setStatus('success');
                 setFormData({ name: '', email: '', message: '' });
             } else {
-                setStatus('error');
+                throw new Error(data.message || 'Form submission failed');
             }
-        } catch {
+        } catch (error) {
+            console.error('Submission error:', error);
             setStatus('error');
         }
     };
