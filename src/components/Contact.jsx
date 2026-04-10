@@ -17,24 +17,25 @@ const Contact = () => {
         console.log('Form submission started for:', formData);
 
         try {
-            const response = await fetch('https://formsubmit.co/ajax/927dcd617f4b80c09efe2f2600610c5f', {
+            const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
                 },
                 body: JSON.stringify({
-                    ...formData,
-                    _subject: `New Portfolio Message from ${formData.name}`,
-                    _captcha: 'false',
-                    _template: 'table',
+                    access_key: '6c4c9ec8-a3e5-454c-b65c-ce3bc9ed0932',
+                    name: formData.name,
+                    email: formData.email,
+                    message: formData.message,
+                    subject: `New Portfolio Message from ${formData.name}`,
                 }),
             });
 
             const data = await response.json();
-            console.log('FormSubmit Response:', data);
+            console.log('Web3Forms Response:', data);
 
-            if (data.success === 'true' || data.success === true) {
+            if (data.success) {
                 setStatus('success');
                 setFormData({ name: '', email: '', message: '' });
             } else {
@@ -199,7 +200,7 @@ const Contact = () => {
                         </button>
 
                         <p className="text-[10px] text-black/30 font-bold text-center tracking-widest uppercase">
-                            Powered by FormSubmit · No spam, ever.
+                            Powered by Web3Forms · No spam, ever.
                         </p>
                     </motion.form>
                 </div>
